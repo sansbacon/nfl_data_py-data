@@ -39,6 +39,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - uses: actions/checkout@master
+      - name: Checkout nflfastR-data
+        uses: actions/checkout@master
         with:
-          name: nflfastR-data <-- clone https://github.com/nflverse/nflfastR-data
+          repository: nflverse/nflfastR-data
