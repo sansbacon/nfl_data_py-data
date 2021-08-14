@@ -14,7 +14,7 @@ on:
         # Default value if no value is explicitly provided
         default: 'World'
         # Input has to be provided for the workflow to run
-        required: true
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,7 +28,12 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      
+      - name: Checkout nflfastr-data
+        uses: actions/checkout@master
+        with:
+          repository: nflverse/nflfastR-data
+          path: './nflfastR-data'
+
       # If using Python:
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -45,8 +50,3 @@ jobs:
       - name: Update data
         run: python3 scripts/update_datafiles.py
 
-
-      #- name: Checkout nflfastR-data
-      #   uses: actions/checkout@master
-      #  with:
-      #     repository: nflverse/nflfastR-data
