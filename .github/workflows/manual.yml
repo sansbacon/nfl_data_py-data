@@ -28,3 +28,17 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
+  
+  # also practice checking out github
+  pull_data:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: actions/checkout@master
+        with:
+          name: nflfastR-data <-- clone https://github.com/nflverse/nflfastR-data
