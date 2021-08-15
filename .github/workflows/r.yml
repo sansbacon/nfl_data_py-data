@@ -36,4 +36,4 @@ jobs:
           r-version: "3.5.3"
 
       - name: Install dependencies
-        run: Rscript -e 'install.packages("nflfastr")'
+        run: Rscript -e 'install.packages("nflfastR")'
