@@ -31,7 +31,7 @@ jobs:
 
       # If using Python:
       - name: Set up R
-        uses: actions/setup-r@v1
+        uses: r-lib/actions/setup-r@v1
         with:
           r-version: "3.5.3"
 
