@@ -9,7 +9,7 @@ def run():
     pth = basepth / 'nflfastR-data' / 'data'   
     for f in pth.glob('play_by_play*.parquet'):
         df = pd.read_parquet(f)
-        cols = df.select_dtypes('float')
+        cols = df.select_dtypes('float').columns
         df.loc[:, cols] = df.loc[:, cols].astype(np.float32)
         df.to_parquet(basepth / 'pbp', partition_cols=['season'])
 
