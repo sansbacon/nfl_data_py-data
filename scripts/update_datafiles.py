@@ -55,10 +55,10 @@ def run():
 
     for f in rtpth.glob('play_by_play*.parquet'):
         print(f)
-        #df = pd.read_parquet(f)
-        #cols = df.select_dtypes('float').columns
-        #df.loc[:, cols] = df.loc[:, cols].astype(np.float32)
-        #df.to_parquet(basepth / 'pbp', partition_cols=['season'])
+        df = pd.read_parquet(f)
+        cols = df.select_dtypes('float').columns
+        df.loc[:, cols] = df.loc[:, cols].astype(np.float32)
+        df.to_parquet(basepth / 'pbp', partition_cols=['season'])
 
 
 if __name__ == '__main__':
